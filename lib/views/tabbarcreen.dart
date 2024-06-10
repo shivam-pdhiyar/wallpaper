@@ -5,8 +5,6 @@ import 'package:walmart/controller/homecontroller.dart';
 import 'package:walmart/views/categoryscreen.dart';
 import 'package:walmart/views/homescreen.dart';
 import 'package:walmart/views/likescreen.dart';
-import 'package:walmart/views/profilescreen.dart';
-import 'package:walmart/views/categoryimg.dart';
 import 'package:walmart/views/searchimg.dart';
 
 class TabbarScreen extends StatefulWidget {
@@ -23,7 +21,7 @@ class _TabbarScreenState extends State<TabbarScreen> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 0,
-      length: 5,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: const Text("Wallmart"),
@@ -48,9 +46,6 @@ class _TabbarScreenState extends State<TabbarScreen> {
               Tab(
                 icon: Icon(Icons.grade_outlined),
               ),
-              Tab(
-                icon: Icon(CupertinoIcons.profile_circled),
-              ),
             ],
           ),
         ),
@@ -60,7 +55,6 @@ class _TabbarScreenState extends State<TabbarScreen> {
             category_Screen(),
             SearchImg(),
             like_Screen(),
-            profile_Screen(),
           ],
         ),
       ),
