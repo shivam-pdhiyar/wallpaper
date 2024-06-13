@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final homecontroller = Get.put(CategoryController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,15 +22,14 @@ class _HomePageState extends State<HomePage> {
           GridView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-
-
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisExtent: 20), itemBuilder: (context, index) {
-            return Container(
-              color: Colors.red,
-
-
-            );
-          },)
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, mainAxisExtent: 20),
+            itemBuilder: (context, index) {
+              return Container(
+                color: Colors.red,
+              );
+            },
+          )
         ],
       ),
     );

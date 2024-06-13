@@ -51,8 +51,10 @@ class _CategoryImgState extends State<CategoryImg> {
                     ),
                   ),
                 );
-              });
-        }),
+              },
+          );
+        },
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(

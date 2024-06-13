@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +14,6 @@ class HomeController extends GetxController {
   RxInt currentindexnum = 0.obs;
   RxBool dataloder = false.obs;
   RxBool imgloder = false.obs;
-  // RxList nevigationlist = [
-  //   const HomeScreen(),
-  //   const category_Screen(),
-  //   const like_Screen(),
-  //   const profile_Screen(),
-  // ].obs;
   final searchTEController = TextEditingController();
   RxList imgList = [].obs;
   RxList searchImgList = [].obs;
@@ -101,26 +94,4 @@ class HomeController extends GetxController {
     160,
     140,
   ];
-
-// imgDownloader() async {
-//   try {
-//     var imageId = await ImageDownloader.downloadImage(
-//         "https://raw.githubusercontent.com/wiki/ko2ic/image_downloader/images/flutter.png",
-//         destination:AndroidDestinationType.directoryDownloads..subDirectory("flutter_img.png"));
-//     if (imageId == null) {
-//       return;
-//     }
-//     var fileName = await ImageDownloader.findName(imageId);
-//     var path = await ImageDownloader.findPath(imageId);
-//     var size = await ImageDownloader.findByteSize(imageId);
-//     var mimeType = await ImageDownloader.findMimeType(imageId);
-//   } on PlatformException catch (error) {
-//     print(error);
-//   }
-// }
-
-// OntapFun(final index) {
-//     currentindexnum.value = index;
-//
-// }
 }

@@ -52,9 +52,6 @@ class _FullImageScreenState extends State<FullImageScreen> {
                       onTap: () async {
                         await homeController.saveImage();
                       },
-                      // onTap: () {
-                      //   homeController.imgDownloader();
-                      // },
                       child: Container(
                         width: 100,
                         color: Colors.grey,
@@ -87,7 +84,8 @@ class _FullImageScreenState extends State<FullImageScreen> {
                     ),
                   ],
                 );
-              }),
+              },
+              ),
             )
           ],
         ),

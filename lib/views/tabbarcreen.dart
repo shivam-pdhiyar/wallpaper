@@ -24,7 +24,7 @@ class _TabbarScreenState extends State<TabbarScreen> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Wallmart"),
+          title: const Text("Walmart"),
           centerTitle: true,
           bottom: TabBar(
             indicatorColor: Colors.transparent,

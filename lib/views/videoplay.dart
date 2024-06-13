@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:walmart/controller/videocontroller.dart';
-
 
 class VideoFile extends StatefulWidget {
   const VideoFile({super.key});
@@ -33,7 +31,8 @@ class _VideoFileState extends State<VideoFile> {
             return InkWell(
               onTap: () {
                 videoController1.videoPlayer(
-                  link: videoController1.videoList[index],);
+                  link: videoController1.videoList[index],
+                );
               },
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -47,14 +46,14 @@ class _VideoFileState extends State<VideoFile> {
                     padding: const EdgeInsets.all(16.0),
                     child: videoController1.playController == null
                         ? const SizedBox(
-                      child: Text(
-                        "vivek",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 30,
-                        ),
-                      ),
-                    )
+                            child: Text(
+                              "vivek",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 30,
+                              ),
+                            ),
+                          )
                         : VideoPlayer(videoController1.playController!),
                   ),
                 ),
