@@ -26,7 +26,7 @@ class _CategoryImgState extends State<CategoryImg> {
         child: Obx(() {
           return GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
+                crossAxisCount: 2,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
                 mainAxisExtent: 250,

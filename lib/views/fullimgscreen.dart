@@ -23,12 +23,19 @@ class _FullImageScreenState extends State<FullImageScreen> {
         child: Column(
           children: [
             Container(
-              width: Get.width / 1.4,
+              width: Get.width / 1.1,
               height: Get.height / 1.3,
-              color: Colors.red,
-              child: Image.network(
-                homeController.singleUrl.value,
-                fit: BoxFit.fill,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.grey.withOpacity(0.4),
+
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.network(
+                  homeController.singleUrl.value,
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
             Spacer(),
@@ -42,8 +49,14 @@ class _FullImageScreenState extends State<FullImageScreen> {
                         homeController.shareImg();
                       },
                       child: Container(
+                        height: 30,
                         width: 100,
-                        color: Colors.grey,
+                        
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(5),
+                          
+                        ),
                         child: Icon(Icons.share),
                       ),
                     ),
@@ -51,10 +64,17 @@ class _FullImageScreenState extends State<FullImageScreen> {
                     InkWell(
                       onTap: () async {
                         await homeController.saveImage();
+                        Get.snackbar("Download Successfully.", "",
+                            snackPosition: SnackPosition.BOTTOM);
+
                       },
                       child: Container(
+                        height: 30,
                         width: 100,
-                        color: Colors.grey,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
                         child: Icon(Icons.download),
                       ),
                     ),
@@ -63,7 +83,7 @@ class _FullImageScreenState extends State<FullImageScreen> {
                       onTap: () {
                         (homeController.storeUrlList
                             .contains(homeController.singleUrl.value))
-                        ? Get.snackbar("Alrady added in favrite", "",
+                        ? Get.snackbar("Alrady added in favorite", "",
                             snackPosition: SnackPosition.BOTTOM)
                             : ({homeController.storeUrlList.add(homeController.singleUrl.value)},
                         Get.snackbar("Added to Starlist successfully", "",
@@ -72,13 +92,21 @@ class _FullImageScreenState extends State<FullImageScreen> {
                       child: (homeController.storeUrlList
                               .contains(homeController.singleUrl.value))
                           ? Container(
-                              width: 100,
-                              color: Colors.grey,
-                              child: const Icon(Icons.favorite),
+                        height: 30,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                              child: const Icon(Icons.favorite, color: Colors.red,),
                             )
                           : Container(
-                              width: 100,
-                              color: Colors.grey,
+                        height: 30,
+                        width: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
                               child: const Icon(Icons.favorite_border),
                             ),
                     ),

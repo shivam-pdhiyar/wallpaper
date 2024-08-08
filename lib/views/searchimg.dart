@@ -1,5 +1,6 @@
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:walmart/controller/homecontroller.dart';
@@ -30,7 +31,7 @@ class _SearchImgState extends State<SearchImg> {
                   hintText: "Enter category",
                   suffixIcon: InkWell(
                     onTap: () {
-                      print(homeController.searchTEController.text);
+                      debugPrint(homeController.searchTEController.text);
                       homeController.seaechImg(
                           page: homeController.counter,
                           query: homeController.searchTEController.text);
@@ -44,12 +45,13 @@ class _SearchImgState extends State<SearchImg> {
               Padding(
                 padding: const EdgeInsets.only(left: 8, right: 8),
                 child: Obx(() {
-                  return DynamicHeightGridView(
+                  return GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, mainAxisExtent: 200, crossAxisSpacing: 10, mainAxisSpacing: 10),
+
                     physics: ScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: homeController.searchImgList.length,
-                    crossAxisCount: 3,
-                    builder: (ctx, index) {
+                    itemBuilder: (ctx, index) {
                       homeController.heights.shuffle();
                       return InkWell(
                         onTap: () async {

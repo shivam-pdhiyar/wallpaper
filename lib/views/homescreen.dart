@@ -36,29 +36,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.only(left: 8, right: 8),
                 child:
                     Obx(() {
-                  return DynamicHeightGridView(
-                    physics: ScrollPhysics(),
+                  return GridView.builder(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, mainAxisExtent: 200, crossAxisSpacing: 10, mainAxisSpacing: 10),
+                    physics: const ScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: homeController.imgList.length,
-                    crossAxisCount: 3,
-                    builder: (ctx, index) {
+                    itemBuilder: (ctx, index) {
                       homeController.heights.shuffle();
-                      return InkWell(
-                        onTap: () async {
-                          print('${homeController.heights.indexed}');
-                          Get.to(FullImageScreen());
-                          homeController.singleUrl.value =
-                              "${homeController.imgList[index]['src']['large']}";
-                        },
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Obx(() {
-                            homeController.heights.shuffle();
-                            return Image.network(
-                              height: homeController.heights.first.toDouble(),
-                                "${homeController.imgList[index]['src']['large']}",
-                                fit: BoxFit.cover);
+                      return SizedBox(
+                        child: InkWell(
+                          onTap: () async {
+                            debugPrint('${homeController.heights.indexed}');
+                            Get.to(const FullImageScreen());
+                            homeController.singleUrl.value =
+                                "${homeController.imgList[index]['src']['large']}";
                           },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Obx(() {
+                              homeController.heights.shuffle();
+                              return Image.network(
+                                height: homeController.heights.first.toDouble(),
+                                  "${homeController.imgList[index]['src']['large']}",
+                                  fit: BoxFit.cover);
+                            },
+                            ),
                           ),
                         ),
                       );
@@ -104,6 +106,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Icon(Icons.arrow_right, color: Colors.black, size: 20),
                 ),
               ),
+
+
+
             ],
           ),
         ),

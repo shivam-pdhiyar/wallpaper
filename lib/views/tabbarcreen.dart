@@ -52,7 +52,7 @@ class _TabbarScreenState extends State<TabbarScreen> {
         body: const TabBarView(
           children: <Widget>[
             HomeScreen(),
-            category_Screen(),
+            CategoryScreen(),
             SearchImg(),
             like_Screen(),
           ],

@@ -26,12 +26,12 @@ class _like_ScreenState extends State<like_Screen> {
             Padding(
               padding: const EdgeInsets.only(left: 8, right: 8),
               child: Obx(() {
-                return DynamicHeightGridView(
+                return GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, mainAxisExtent: 200, crossAxisSpacing: 10, mainAxisSpacing: 10),
                   physics: ScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: homeController.storeUrlList.length,
-                  crossAxisCount: 3,
-                  builder: (ctx, index) {
+                  itemBuilder: (ctx, index) {
                     homeController.heights.shuffle();
                     return InkWell(
                       onTap: () async {
